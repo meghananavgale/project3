@@ -89,8 +89,8 @@ DATABASES = {
 #         'NAME': 'DB_name',
 #         'HOST': '127.0.0.1',
 #         'PORT': '3306',
-#         'USER': 'DB_user',
-#         'PASSWORD': 'DB_password',
+#         'USER': 'username',
+#         'PASSWORD': 'password',
 #     }
 # }
 
