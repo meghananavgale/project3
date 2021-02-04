@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://stackpath.bootstrap/favicon.icocdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+{% block content %}
+{% if message %}
+<div class="container">
+<div class="alert alert-info">
+    <h5><b>Info!</b> {{ message }}</h5>
+</div>
+</div>
+{% endif %}
+{% if alert %}
+<div class="container">
+  <div class="alert alert-success">
+      <h5><b>Success!</b> {{ alert }}</h5>
+  </div>
+</div>
+{% endif %}
+<h1>User Sign Up!</h1>
+<form method="POST" action="{% url 'register' %}">
+    {% csrf_token %}
+    Username:
+    <br />
+    <input type="text" name="username" required/>
+    <br />
+    Password:
+    <br />
+    <input type="password" name="password" required/>
+    <br />
+    Confirm Password:
+    <br />
+    <input type="password" name="confirmPassword" required/>
+    <br />
+    <br />
+    <input class="btn btn-primary" type="submit"  value="Register!" />
+</form>
+<br>
+<hr />
+<a href="{% url 'login' %}">Login</a>
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+{% endblock %}
